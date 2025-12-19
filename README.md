@@ -21,5 +21,10 @@ A dynamic personal website built using **Node.js** and the **Express** framework
 │   ├── assets/        # CSS, Images, and client-side JS
 │   └── views/         # HBS templates
 │       └── partials/  # Reusable UI components
+│            ├── navbarSection.hbs
+│            ├── footerSection.hbs
+│            ├── techStackSection.hbs
+│            ├── aboutSection.hbs
+│            └── projectCard.hbs
 ├── index.js           # Server entry point
 └── package.json       # Project dependencies & scripts

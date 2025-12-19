@@ -6,8 +6,35 @@
 /* Global Styles */
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #ffffff;
-    color: #1a1a1a;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Variables for Light Mode */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+}
+
+/* Variables for Dark Mode */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f8f9fa;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color);
+}
+
+/* Ensure the navbar and footer adapt */
+body.dark-mode .navbar, 
+body.dark-mode .bg-light {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .nav-link,
+body.dark-mode #darkModeToggle i {
+    color: #f8f9fa !important;
 }
 
 /* The Profile Image Glow Effect */
@@ -46,3 +73,48 @@ body {
 .btn:hover {
     transform: translateY(-2px);
 }
+
+////////////////////////// TECH STACK SECTION //////////////////////////
+/* The Container (The "Window") */
+.logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    position: relative;
+    display: flex !important;      /* Forces Flexbox */
+    flex-direction: row !important; /* Forces horizontal */
+    flex-wrap: nowrap !important;   /* Hard-stop on wrapping to a second line */
+    align-items: center;
+    width: 100%;
+}
+/* The Sliding Rows */
+.logos-slide {
+    display: flex !important;       /* Changed to flex for better child control */
+    flex-direction: row !important;
+    white-space: nowrap !important;
+    animation: 20s slide infinite linear;
+    flex-shrink: 0 !important;      /* Prevents the slide from squishing to fit the screen */
+}
+/* The Icons */
+.logos-slide i {
+    font-size: 4rem;
+    margin: 0 50px;                 /* Increased margin for better spacing */
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+/* Colorize on hover */
+.logos-slide i:hover {
+    color: #22c55e; /* Use your green brand color */
+    transform: scale(1.2);
+    cursor: pointer;
+}
+/* The Animation */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+////////////////////////////////////////////////////////////////////////
