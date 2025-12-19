@@ -74,26 +74,26 @@ body.dark-mode #darkModeToggle i {
     transform: translateY(-2px);
 }
 
-////////////////////////// TECH STACK SECTION //////////////////////////
+/* ///////////////////////// TECH STACK SECTION ////////////////////////// */
 /* The Container (The "Window") */
 .logos {
     overflow: hidden;
     padding: 60px 0;
-    background: white;
+    background: transparent; /* Changed to transparent for dark mode compatibility */
     position: relative;
-    display: flex !important;      /* Forces Flexbox */
-    flex-direction: row !important; /* Forces horizontal */
-    flex-wrap: nowrap !important;   /* Hard-stop on wrapping to a second line */
-    align-items: center;
-    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100vw;              /* Forces it to be the width of the screen */
+    margin-left: calc(-50vw + 50%); /* Centers it if it's inside a Bootstrap container */
 }
 /* The Sliding Rows */
 .logos-slide {
-    display: flex !important;       /* Changed to flex for better child control */
+    display: flex !important;
     flex-direction: row !important;
-    white-space: nowrap !important;
-    animation: 20s slide infinite linear;
-    flex-shrink: 0 !important;      /* Prevents the slide from squishing to fit the screen */
+    flex-shrink: 0 !important;      /* This is the key: prevents squishing */
+    width: max-content !important;   /* Forces width based on content, not parent */
+    animation: 30s slide infinite linear; /* Slower speed for smoother look */
 }
 /* The Icons */
 .logos-slide i {
@@ -117,4 +117,4 @@ body.dark-mode #darkModeToggle i {
         transform: translateX(-100%);
     }
 }
-////////////////////////////////////////////////////////////////////////
+/* ////////////////////////////////////////////////////////////////////// */
