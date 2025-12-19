@@ -1,0 +1,14 @@
+## CONFIG to git so it wont publish certain things
+
+# Dependency folders
+node_modules/
+
+# Environment variables (Sensitive data)
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore your uploads if you don't want them on GitHub
+src/assets/uploads/

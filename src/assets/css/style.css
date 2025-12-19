@@ -1,0 +1,48 @@
+/* Emergency Test Style */
+/* body {
+    background-color: red !important;
+} */
+
+/* Global Styles */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* The Profile Image Glow Effect */
+.profile-card {
+    position: relative;
+    border-radius: 24px;
+    z-index: 1;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #a855f7, #6366f1);
+    filter: blur(25px);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 24px;
+}
+
+/* Custom Button Styles */
+.btn-success {
+    background-color: #22c55e !important;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.btn-dark {
+    background-color: #000000 !important;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
