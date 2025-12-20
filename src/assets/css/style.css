@@ -73,6 +73,44 @@ body.dark-mode #darkModeToggle i {
 .btn:hover {
     transform: translateY(-2px);
 }
+/* ///////////////////////// WORK EXPERIENCE SECTION ////////////////////////// */
+/* Work Experience Styles */
+.experience-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #edf2f7 !important;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+}
+
+.experience-list {
+    list-style-type: disc;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+.experience-list li {
+    margin-bottom: 8px;
+}
+
+/* Tech Badges styling */
+.experience-card .badge {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #4a5568 !important;
+}
+
+/* Dark Mode Support */
+body.dark-mode .experience-card {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .experience-list {
+    color: #cbd5e0;
+}
 
 /* ///////////////////////// TECH STACK SECTION ////////////////////////// */
 /* The Container (The "Window") */
