@@ -111,6 +111,38 @@ body.dark-mode .experience-card {
 body.dark-mode .experience-list {
     color: #cbd5e0;
 }
+/* ///////////////////////// CTA SECTION ////////////////////////// */
+/* CTA Section Styling */
+.cta-section {
+    background-color: var(--bg-color);
+}
+
+.cta-section h1 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+/* Vertical divider color */
+.cta-section .border-start {
+    border-color: #dee2e6 !important;
+}
+
+/* Hover effects for contact links */
+.cta-section a:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+/* Dark Mode Support */
+body.dark-mode .cta-section a,
+body.dark-mode .cta-section h1,
+body.dark-mode .cta-section p {
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .cta-section .border-start {
+    border-color: #333 !important;
+}
 
 /* ///////////////////////// TECH STACK SECTION ////////////////////////// */
 /* The Container (The "Window") */

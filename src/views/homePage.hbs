@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/emoji/48/brain-emoji.png">
     <title>Faqih Alam | Personal Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -20,10 +21,20 @@
         {{> techStackSection }}                  <!-- Call the techStackSection.hbs -->
         {{> workExperienceSection }}             <!-- Call the workExperienceSection.hbs --> 
         {{> myProjectSection }}                  <!-- Call the myProjectSection.hbs -->
+        {{> CTASection }}                        <!-- Call the CTASection.hbs -->
     </main>
     
     <footer class="text-center py-3 mt-5 bg-light">
-            <p class="mb-0">&copy; 2025 Faqih Alam. All rights reserved.</p>
+        <div class="mt-5 pt-5 border-top">
+            <p class="text-muted small mb-3">
+                © 2025 Designed and coded with <i class="fa-solid fa-heart text-danger"></i> by Faqih Alam
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="text-muted fs-5"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-muted fs-5"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
     </footer>
     <script src="/assets/js/homePage.js"></script>
 </body>
