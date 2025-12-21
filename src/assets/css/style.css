@@ -111,6 +111,38 @@ body.dark-mode .experience-card {
 body.dark-mode .experience-list {
     color: #cbd5e0;
 }
+/* ///////////////////////// MY PROJECTS SECTION ////////////////////////// */
+/* Hover effects for cards */
+.project-card {
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Project Image Area */
+.project-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Tech Badges styling */
+.project-card .badge {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #4a5568 !important;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .project-card {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+body.dark-mode .project-card p {
+    color: var(--text-color) !important;
+}
+
 /* ///////////////////////// CTA SECTION ////////////////////////// */
 /* CTA Section Styling */
 .cta-section {
