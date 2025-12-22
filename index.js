@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'src/views'));
 hbs.registerPartials(path.join(__dirname, 'src/views/partials'));    // Register partials directory
 
 // SERVE STATIC FILES
-app.use('/assets', express.static(path.resolve(__dirname, 'src/assets'))); // Serve static files from the "src/assets" directory
+app.use('/assets', express.static(path.join(__dirname, 'src/assets'))); // Serve static files from the "src/assets" directory
 app.use(express.urlencoded({ extended: false }));                       // Parse form data from POST requests 
 
 
