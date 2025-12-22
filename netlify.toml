@@ -1,11 +1,12 @@
 [build]
   command = "npm run build"
   publish = "src/assets"
-  functions = "netlify/functions" # Point directly to your source folder
+  functions = "netlify/functions"
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["express", "hbs"]
+  # This tells Netlify to include your views folder inside the function bundle
+  included_files = ["src/views/**"] 
 
 [[redirects]]
   from = "/*"
