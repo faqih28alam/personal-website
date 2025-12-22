@@ -3,7 +3,7 @@ Check out the [Website](https://personal-website-gamma-neon-93.vercel.app/) for 
 
 # Personal Website - Portfolio Project
 
-A dynamic personal website built using **Node.js** and the **Express** framework. This project demonstrates the implementation of a server-side rendered application using **Handlebars (HBS)** with a modular architecture.
+A personal website built using **HTML**, **CSS**, **Java Script**, & **Express** framework. This project demonstrates the implementation of a server-side rendered application using **Handlebars (HBS)** with a modular architecture.
 
 ---
 
@@ -12,8 +12,6 @@ A dynamic personal website built using **Node.js** and the **Express** framework
 * **Server-Side Rendering**: Utilizing HBS for dynamic content generation.
 * **Modular UI Components**: Implementation of **Handlebars Partials** (like `navbarSection` and `techStackSection`) for code reusability.
 * **Static Asset Management**: Efficient serving of CSS and images from a dedicated assets directory.
-* **Relational Database**: Integration with **PostgreSQL** for data persistence.
-* **Security**: Password hashing implemented via **bcrypt** and session management for user authentication.
 
 ---
 
@@ -21,13 +19,16 @@ A dynamic personal website built using **Node.js** and the **Express** framework
 
 ```text
 ├── src/
-│   ├── assets/        # CSS, Images, and client-side JS
+│   ├── assets/        # CSS, img, and client-side JS
 │   └── views/         # HBS templates
+│       ├── homePage.hbs
 │       └── partials/  # Reusable UI components
 │            ├── navbarSection.hbs
-│            ├── footerSection.hbs
+│            ├── myProjectSection.hbs
 │            ├── techStackSection.hbs
 │            ├── aboutSection.hbs
-│            └── projectCard.hbs
+│            ├── workExperienceSection.hbs
+│            └── CTASection.hbs
+│             
 ├── index.js           # Server entry point
 └── package.json       # Project dependencies & scripts
