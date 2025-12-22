@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
+  functions = "functions-dist"  # Changed from netlify/functions
   publish = "src/assets"
 
 [[redirects]]
