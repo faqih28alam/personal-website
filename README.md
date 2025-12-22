@@ -1,3 +1,6 @@
+Check out the [Website](https://personal-website-gamma-neon-93.vercel.app/) for preview.
+
+
 # Personal Website - Portfolio Project
 
 A dynamic personal website built using **Node.js** and the **Express** framework. This project demonstrates the implementation of a server-side rendered application using **Handlebars (HBS)** with a modular architecture.
