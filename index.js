@@ -45,13 +45,17 @@ function home(req, res) {
 }
 
 // EXPORT FOR NETLIFY
-// In ES Modules, we use 'export const' instead of 'module.exports'
-export const handler = serverless(app);
 
 // LOCAL DEVELOPMENT (Only runs if not on Netlify)
+// Wrap the listen command so it ONLY runs on your local computer
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
         console.log(`Server running on http://localhost:${PORT}`);
     });
 }
+
+// Export the handler for serverless
+export const handler = serverless(app);
+// Export the app for the api.js function to use
+export default app;
