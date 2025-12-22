@@ -16,11 +16,13 @@ const PORT = process.env.PORT || 3000;          // Use .env port or default to 3
 
 // VIEW ENGINE CONFIGURATION (HBS) OR PATH CONFIGURATION
 import { fileURLToPath } from 'url';
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Define __dirname safely for Netlify functions
+const __filename = fileURLToPath(import.meta.url || 'file:///index.js');
+const __dirname = path.dirname(__filename);
 
 app.set('view engine', 'hbs');                                          // Set view engine to hbs
 app.set('views', path.resolve(__dirname, 'src/views'));
-hbs.registerPartials(path.resolve(__dirname, 'src/views/partials'));      // Register partials directory
+hbs.registerPartials(path.resolve(__dirname, 'src/views/partials'));     // Register partials directory
 
 // SERVE STATIC FILES
 app.use('/assets', express.static(path.join(__dirname, 'src/assets'))); // Serve static files from the "src/assets" directory

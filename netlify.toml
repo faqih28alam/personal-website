@@ -1,10 +1,10 @@
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
+  functions = "functions-dist"
   publish = "src/assets"
 
 [functions]
-  node_bundler = "esbuild"  # This handles the 'import.meta' error automatically!
+  node_bundler = "esbuild"  # This is the key fix!
 
 [[redirects]]
   from = "/*"
