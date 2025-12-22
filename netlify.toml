@@ -1,11 +1,11 @@
 [build]
   command = "npm run build"
-  functions = "functions-dist"
   publish = "src/assets"
+  functions = "netlify/functions" # Point directly to your source folder
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["express", "hbs"] # Helps avoid bundling issues with binary modules
+  external_node_modules = ["express", "hbs"]
 
 [[redirects]]
   from = "/*"

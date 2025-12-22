@@ -17,15 +17,7 @@ const PORT = process.env.PORT || 3000;          // Use .env port or default to 3
 // VIEW ENGINE CONFIGURATION (HBS) OR PATH CONFIGURATION
 import { fileURLToPath } from 'url';
 // Define __dirname safely for Netlify functions
-const __filename = fileURLToPath(import.meta.url || 'file:///index.js');
-// Robust path handling for both ESM and CommonJS environments
-let __dirname;
-try {
-  __dirname = path.dirname(fileURLToPath(import.meta.url));
-} catch (e) {
-  // Fallback if import.meta.url is undefined (CommonJS context)
-  __dirname = process.cwd(); 
-}
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.set('view engine', 'hbs');                                          // Set view engine to hbs
 app.set('views', path.resolve(__dirname, 'src/views'));
