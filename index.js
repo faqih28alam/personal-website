@@ -18,15 +18,15 @@ const PORT = process.env.PORT || 3000;          // Use .env port or default to 3
 import { fileURLToPath } from 'url';
 // Bulletproof __dirname for both local and Netlify
 let __dirname;
-if (typeof import.meta !== 'undefined' && import.meta.url) {
+try {
   __dirname = path.dirname(fileURLToPath(import.meta.url));
-} else {
-  __dirname = process.cwd(); // This is what Netlify uses in production
+} catch (e) {
+  __dirname = process.cwd(); // Safe fallback for Netlify environment
 }
 
 app.set('view engine', 'hbs');
-app.set('views', path.resolve(__dirname, 'src/views'));
-hbs.registerPartials(path.resolve(__dirname, 'src/views/partials'));    // Register partials directory
+app.set('views', path.join(__dirname, 'src/views'));
+hbs.registerPartials(path.join(__dirname, 'src/views/partials'));    // Register partials directory
 
 // SERVE STATIC FILES
 app.use('/assets', express.static(path.resolve(__dirname, 'src/assets'))); // Serve static files from the "src/assets" directory

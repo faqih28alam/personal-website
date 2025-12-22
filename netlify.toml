@@ -5,8 +5,10 @@
 
 [functions]
   node_bundler = "esbuild"
-  # This tells Netlify to include your views folder inside the function bundle
-  included_files = ["src/views/**"] 
+  # This ensures your .hbs files are actually uploaded with the code
+  included_files = ["src/views/**"]
+  # Remove 'hbs' from external_node_modules so esbuild bundles it
+  external_node_modules = ["pg"] 
 
 [[redirects]]
   from = "/*"
