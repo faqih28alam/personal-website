@@ -16,12 +16,11 @@ const PORT = process.env.PORT || 3000;          // Use .env port or default to 3
 
 // VIEW ENGINE CONFIGURATION (HBS) OR PATH CONFIGURATION
 import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.set('view engine', 'hbs');                                          // Set view engine to hbs
-app.set('views', path.join(__dirname, 'src/views'));                    // Set views directory
-hbs.registerPartials(path.join(__dirname, 'src/views/partials'));       // Register partials directory
+app.set('views', path.resolve(__dirname, 'src/views'));
+hbs.registerPartials(path.resolve(__dirname, 'src/views/partials'));      // Register partials directory
 
 // SERVE STATIC FILES
 app.use('/assets', express.static(path.join(__dirname, 'src/assets'))); // Serve static files from the "src/assets" directory
