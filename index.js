@@ -8,7 +8,6 @@ import hbs from 'hbs';                          // npm install hbs for handlebar
 import session from 'express-session';          // npm install express-session for session
 import flash from 'express-flash';              // npm install express-flash for flash message
 import 'dotenv/config';                         // Load variables from .env
-import serverless from 'serverless-http';       // for deploy to netlify
 
 // SERVER SETUP
 const app = express();
@@ -16,31 +15,25 @@ const PORT = process.env.PORT || 3000;          // Use .env port or default to 3
 
 // VIEW ENGINE CONFIGURATION (HBS) OR PATH CONFIGURATION
 import { fileURLToPath } from 'url';
-// Bulletproof __dirname for both local and Netlify
-let __dirname;
-try {
-  __dirname = path.dirname(fileURLToPath(import.meta.url));
-} catch (e) {
-  __dirname = process.cwd(); // Safe fallback for Netlify environment
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src/views'));
 hbs.registerPartials(path.join(__dirname, 'src/views/partials'));    // Register partials directory
 
-// SERVE STATIC FILES
+// MIDDLEWARE & STATIC FILES
 app.use('/assets', express.static(path.join(__dirname, 'src/assets'))); // Serve static files from the "src/assets" directory
 app.use(express.urlencoded({ extended: false }));                       // Parse form data from POST requests 
-
 
 // ROUTES
 app.get('/', home);
 app.get('/home', home);
 
 // START SERVER
-// app.listen(PORT, () => {
-//     console.log(`Server running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
 
 
 // FUNCTIONS
@@ -48,19 +41,3 @@ app.get('/home', home);
 function home(req, res) {
     res.render('homePage');
 }
-
-// EXPORT FOR NETLIFY
-
-// LOCAL DEVELOPMENT (Only runs if not on Netlify)
-// Wrap the listen command so it ONLY runs on your local computer
-if (process.env.NODE_ENV !== 'production') {
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
-}
-
-// Export the handler for serverless
-export const handler = serverless(app);
-// Export the app for the api.js function to use
-export default app;

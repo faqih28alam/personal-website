@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e js,hbs,css index.js",
-    "build": "echo 'Using native Netlify bundling'"
+    "start": "nodemon -e js,hbs,css index.js"
   },
   "keywords": [],
   "author": "",
