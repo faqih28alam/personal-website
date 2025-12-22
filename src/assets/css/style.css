@@ -9,6 +9,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    padding-top: 80px;
 }
 
 /* Variables for Light Mode */
@@ -35,6 +36,12 @@ body.dark-mode .bg-light {
 body.dark-mode .nav-link,
 body.dark-mode #darkModeToggle i {
     color: #f8f9fa !important;
+}
+
+/* Dark Mode Support footer*/
+body.dark-mode .footer a,
+body.dark-mode .footer p {
+    color: var(--text-color) !important;
 }
 
 /* The Profile Image Glow Effect */
@@ -73,6 +80,12 @@ body.dark-mode #darkModeToggle i {
 .btn:hover {
     transform: translateY(-2px);
 }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* This creates a gap so the navbar doesn't hide your section titles */
+}
+
 /* ///////////////////////// WORK EXPERIENCE SECTION ////////////////////////// */
 /* Work Experience Styles */
 .experience-card {
@@ -178,38 +191,34 @@ body.dark-mode .cta-section .border-start {
 
 /* ///////////////////////// TECH STACK SECTION ////////////////////////// */
 /* The Container (The "Window") */
-.logos {
-    overflow: hidden;
-    padding: 60px 0;
-    background: transparent; /* Changed to transparent for dark mode compatibility */
-    position: relative;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    width: 100vw;              /* Forces it to be the width of the screen */
-    margin-left: calc(-50vw + 50%); /* Centers it if it's inside a Bootstrap container */
-}
-/* The Sliding Rows */
-.logos-slide {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-shrink: 0 !important;      /* This is the key: prevents squishing */
-    width: max-content !important;   /* Forces width based on content, not parent */
+.logos-container {
+    display: flex;
+    width: max-content;
+    gap: 1rem;
     animation: 30s slide infinite linear; /* Slower speed for smoother look */
 }
+.horizontal-scroll {
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-color: transparent transparent;
+}
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
 /* The Icons */
-.logos-slide i {
+.logos-container i {
     font-size: 4rem;
     margin: 0 50px;                 /* Increased margin for better spacing */
     color: #6c757d;
     transition: all 0.3s ease;
 }
 /* Colorize on hover */
-.logos-slide i:hover {
+.logos-container i:hover {
     color: #22c55e; /* Use your green brand color */
     transform: scale(1.2);
     cursor: pointer;
 }
+
 /* The Animation */
 @keyframes slide {
     from {
