@@ -18,7 +18,14 @@ const PORT = process.env.PORT || 3000;          // Use .env port or default to 3
 import { fileURLToPath } from 'url';
 // Define __dirname safely for Netlify functions
 const __filename = fileURLToPath(import.meta.url || 'file:///index.js');
-const __dirname = path.dirname(__filename);
+// Robust path handling for both ESM and CommonJS environments
+let __dirname;
+try {
+  __dirname = path.dirname(fileURLToPath(import.meta.url));
+} catch (e) {
+  // Fallback if import.meta.url is undefined (CommonJS context)
+  __dirname = process.cwd(); 
+}
 
 app.set('view engine', 'hbs');                                          // Set view engine to hbs
 app.set('views', path.resolve(__dirname, 'src/views'));
@@ -34,9 +41,9 @@ app.get('/', home);
 app.get('/home', home);
 
 // START SERVER
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server running on http://localhost:${PORT}`);
+// });
 
 
 // FUNCTIONS

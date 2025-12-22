@@ -4,7 +4,8 @@
   publish = "src/assets"
 
 [functions]
-  node_bundler = "esbuild"  # This is the key fix!
+  node_bundler = "esbuild"
+  external_node_modules = ["express", "hbs"] # Helps avoid bundling issues with binary modules
 
 [[redirects]]
   from = "/*"
