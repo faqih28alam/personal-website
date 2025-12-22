@@ -8,12 +8,13 @@ import hbs from 'hbs';                          // npm install hbs for handlebar
 import session from 'express-session';          // npm install express-session for session
 import flash from 'express-flash';              // npm install express-flash for flash message
 import 'dotenv/config';                         // Load variables from .env
+import serverless from 'serverless-http';       // for deploy to netlify
 
 // SERVER SETUP
 const app = express();
 const PORT = process.env.PORT || 3000;          // Use .env port or default to 3000
 
-// VIEW ENGINE CONFIGURATION (HBS)
+// VIEW ENGINE CONFIGURATION (HBS) OR PATH CONFIGURATION
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: false }));                       // Parse
 
 
 // ROUTES
+app.get('/', home);
 app.get('/home', home);
 
 // START SERVER
@@ -40,4 +42,16 @@ app.listen(PORT, () => {
 // Render home page
 function home(req, res) {
     res.render('homePage');
+}
+
+// EXPORT FOR NETLIFY
+// In ES Modules, we use 'export const' instead of 'module.exports'
+export const handler = serverless(app);
+
+// LOCAL DEVELOPMENT (Only runs if not on Netlify)
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
 }
