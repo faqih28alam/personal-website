@@ -64,7 +64,9 @@ body.dark-mode .footer p {
     z-index: -1;
     border-radius: 24px;
 }
-
+.profile-card:hover {
+    transform: translateY(-7px);
+}
 /* Custom Button Styles */
 .btn-success {
     background-color: #22c55e !important;
