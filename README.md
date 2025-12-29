@@ -1,4 +1,4 @@
-Check out the [Website](https://personal-website-gamma-neon-93.vercel.app/) for preview.
+Check out the [Website](https://faqihalam.vercel.app/) for preview.
 
 
 # Personal Website - Portfolio Project
